@@ -25,14 +25,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Build
-        run: |
-          go build ./cmd/rest-server
-
-      - name: Build with build.go
-        run: |
-          go run build.go --goos linux
-
       - name: Save tag in env variable
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
